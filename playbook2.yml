@@ -1,0 +1,16 @@
+
+---
+- hosts: all
+  become: yes
+  tasks:
+
+  - name: Insall tuned
+    apt:
+      name: tuned
+      state: present
+
+  - name: Tuned enadled
+    service: 
+      name: tuned 
+      state: started 
+      enabled: yes 

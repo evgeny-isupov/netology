@@ -1,0 +1,11 @@
+
+---
+- hosts: all
+  become: yes
+  tasks:
+  
+  - name: Download and Unarchive file to directory
+    unarchive:
+      src: https://dlcdn.apache.org/kafka/3.2.0/kafka-3.2.0-src.tgz
+      dest: /tmp/
+      remote_src: yes

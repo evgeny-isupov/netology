@@ -1,0 +1,27 @@
+---
+  - name: Insall Apache
+    apt:
+      name: apache2
+      state: present
+
+  - name: Change index.html
+    copy:
+      content: '>>HDD - {{ ansible_devices.vda.size }}<<  >> CPU - {{ ansible_processor }}<<  >> RAM - {{ ansible_memtotal_mb }}<<  >> IP {{ ansible_default_ipv4.address }}<<'
+      dest: '{{ destin_folder }}'
+
+  - name: Restart apache2
+    service:
+      name: apache2
+      state: restarted
+#      enabled: yes    
+
+  - name: Check a status 200
+    uri:
+      url: http://{{ ansible_default_ipv4.address }}
+      status_code: 200 
+    register: this
+
+  - debug:
+      msg: '{{ this }}'
+#      return_content: yes
+#    register: this
