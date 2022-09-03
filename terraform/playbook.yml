@@ -1,0 +1,25 @@
+
+---
+- hosts: all
+  become: yes
+  tasks:
+
+  - name: Insall nginx
+    apt:
+      name: nginx
+      state: latest
+
+  - name: nginx enadled
+    service:
+      name: nginx
+      state: started
+      enabled: yes
+
+  - name: Check a status 200
+    uri:
+      url: http://{{ ansible_default_ipv4.address }}
+      status_code: 200
+    register: this
+
+  - debug:
+      msg: '{{ this }}'

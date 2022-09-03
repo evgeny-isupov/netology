@@ -1,0 +1,19 @@
+
+---
+- hosts: all
+  become: yes
+
+  vars:
+    motd: ===Have a nice day===
+
+  tasks:
+
+  - name: Change motd
+    copy:
+      content: '{{ ansible_hostname }} {{ ansible_all_ipv4_addresses }} {{ motd }}'
+      dest: /etc/motd
+      register: rs
+  
+  - debug:  
+#      msg: '{{ ansible_hostname }} {{ ansible_all_ipv4_addresses }} {{ motd }}'
+      var: rs

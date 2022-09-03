@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: yes
+
+  vars:
+    motd: hello Evgeny
+
+  tasks:
+  
+  - name: Change motd
+    copy:
+      content: '{{ motd }}'
+      dest: /etc/motd
