@@ -34,17 +34,9 @@ resource "yandex_compute_instance" vm {
     nat       = true
   }
 
-#  metadata = {
-#    ssh-keys = "${file("./meta.txt")}"
-#    user-data = "${file("./meta1.txt")}"
-#  }
-
     metadata = {
-    ssh-keys = "cloud_access_ssh-keys"
-    user-data = "${file("./meta1.txt")}"
+    user-data = "${file("./meta.txt")}"
   }
-
-
 
   scheduling_policy {
     preemptible = true
