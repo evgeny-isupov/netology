@@ -1,8 +1,0 @@
-#cloud-config
-users:
- - name: isupov
-   groups: sudo
-   shell: /bin/bash
-   sudo: ['ALL=(ALL) NOPASSWD:ALL']
-   ssh-authorized-keys:
-     - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDMmJkwxQeE7amw1xjMNVxug5lrPOStf0S/OaMNAZN/XR/mEfWHYsGEJ0TMWnOdZv+l1jIXI5w4/26OgshW45DoBYXF4PgxaY+/uvQX8L5iCSWRVHxWap3SdbOK7olRoPQgNWeQUiZ0geaSyYVITjRjJ4osBjt1rQaNm0L14jumdMsR80fr22Bk+d9EDTnzEyx+Op7MxWEBNMdWLh2YoB1A3nZRLnLNlQcTYdYI/l8v7fYr0mwb+lRmTotSpIQPXBg36uIvgZzFDuhbxS/iKdXqyopEWC2m8CRveQQ4d5Wv54gAvkOc5pu1PDPaJdOQSbIrxh2+raP123NTj/XONL//Widzl8ifcYaFYRTIIC1ZB4LDVWNnVjKPWcH4QqGdbXlpZm4KjU5P1QDh9ZXrKLKMwxelbv5WzOuGotjAj4Tu+5T9XkZPBNLdT8fO0pyduZX5K8pnuq3NM7eDzku1DjIE4HaNUCREl4lZz94tr/F+yLO5JdKC4kFpWy3KExi7vw8= isupov@isupov
