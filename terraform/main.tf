@@ -34,10 +34,16 @@ resource "yandex_compute_instance" vm {
     nat       = true
   }
 
-  metadata = {
-    ssh-keys = "${file("./meta.txt")}"
+#  metadata = {
+#    ssh-keys = "${file("./meta.txt")}"
+#    user-data = "${file("./meta1.txt")}"
+#  }
+
+    metadata = {
+    ssh-keys = "cloud_access_ssh-keys"
     user-data = "${file("./meta1.txt")}"
   }
+
 
 
   scheduling_policy {
@@ -67,7 +73,7 @@ resource "yandex_lb_network_load_balancer" "lb1" {
   attached_target_group {
     target_group_id = "${yandex_lb_target_group.netology-1.id}"
     healthcheck {
-      name = "ssh"
+      name = "http"
         http_options {
           port = 80
           path = "/"
